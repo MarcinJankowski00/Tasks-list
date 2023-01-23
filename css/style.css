@@ -1,0 +1,13 @@
+html {
+    box-sizing: border-box;
+}
+
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+
+.body {
+    display: flex;
+    font-family: 'Lato', sans-serif;
+    flex-direction: column;
+}
