@@ -1,14 +1,5 @@
 {
-    const tasks = [
-        {
-            content: "zadanie1",
-            done: false,
-        },
-        {
-            content: "zadanie2",
-            done: false,
-        },
-    ];
+    const tasks = [];
 
     const addNewTask = (newTaskContent) => {
         tasks.push({
@@ -80,6 +71,8 @@
             return;
         }
         addNewTask(newTaskContent);
+
+        document.querySelector(".js-newTask").value = "";
     };
 
     const init = () => {
