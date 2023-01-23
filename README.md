@@ -1,7 +1,7 @@
 # To-do list
 
 ## Demo
-https://marcinjankowski00.github.io/Tasks-list/
+https://marcinjankowski00.github.io/To-do-list/
 
 ![Website preview](https://raw.githubusercontent.com/MarcinJankowski00/Tasks-list/main/images/preview.png)
 
