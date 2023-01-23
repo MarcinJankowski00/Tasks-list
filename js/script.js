@@ -73,6 +73,7 @@
         addNewTask(newTaskContent);
 
         document.querySelector(".js-newTask").value = "";
+        document.getElementById("input").focus();
     };
 
     const init = () => {
