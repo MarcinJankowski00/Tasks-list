@@ -6,7 +6,7 @@
         },
         {
             content: "zadanie2",
-            done: true,
+            done: false,
         },
     ];
 
@@ -28,21 +28,7 @@
         render();
     };
 
-    const render = () => {
-        let htmlString = "";
-
-        for (const task of tasks) {
-            htmlString += `
-            <li class="list__item${task.done ? " list__item--done" : ""}">
-            <button class="js-done">Zrobione?</button>
-                ${task.content}
-                <button class="js-remove">Usuń</button> 
-            </li>
-            `;
-        }
-
-        document.querySelector(".js-tasks").innerHTML = htmlString;
-
+    const bindEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
 
         removeButtons.forEach((removeButton, index) => {
@@ -58,6 +44,23 @@
                 toggleTaskDone(index);
             });
         });
+    }
+
+    const render = () => {
+        let htmlString = "";
+
+        for (const task of tasks) {
+            htmlString += `
+            <li class="list__item${task.done ? " list__item--done" : ""}">
+            <button class="js-done">Zrobione?</button>
+                ${task.content}
+                <button class="js-remove">Usuń</button> 
+            </li>
+            `;
+        }
+
+        document.querySelector(".js-tasks").innerHTML = htmlString;
+        bindEvents();
     };
 
 
