@@ -11,6 +11,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="css/style.css" rel="stylesheet">
     <link href="css/list.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
+    <link href="css/container.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap"
@@ -22,24 +24,18 @@
 </head>
 
 <body class="body">
-    <h1 class="Header">Lista zadań</h1>
     <div class="container">
+        <h1>Lista zadań</h1>
+        <h2 class="container__header">Dodaj nowe zadanie</h2>
         <form class="js-form form">
-            <h2 class="form__header">Dodaj nowe zadanie</h2>
-            <p>
-                <label for="name">
-                    <input class="form__field js-newTask" required name="name" id="name" placeholder="Co jest do zrobienia?"
-                        autofocus>
-                </label>
-                <button>Dodaj zadanie</button>
-            </p>
+            <input class="form__field js-newTask" placeholder="Co jest do zrobienia?" autofocus>
+            <button class="form__button">Dodaj zadanie</button>
         </form>
+        <h2 class="container__header">Lista zadań</h2>
+        <div class="container__element">
+            <ul class="js-tasks list"></ul>
+        </div>
     </div>
-    <div>
-        <h2>Lista zadań</h2>
-        <ul class="js-tasks list"></ul>
-    </div>
-
 </body>
 
 </html>

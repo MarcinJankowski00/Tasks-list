@@ -9,5 +9,8 @@ html {
 .body {
     display: flex;
     font-family: 'Lato', sans-serif;
-    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    font-size: 22px;
+    background-color: rgb(237, 237, 237);
 }

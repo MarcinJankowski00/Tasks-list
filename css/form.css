@@ -1,0 +1,37 @@
+html {
+    box-sizing: border-box;
+}
+
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+
+.form {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    margin-top: 3px;
+    margin-bottom: 15px;
+    padding: 30px;
+    box-shadow: 0px 0px 5px 4px #EAEAEA;
+}
+
+.form__field {
+    border: 1px solid rgb(199, 199, 199);
+    padding: 10px;
+    margin-right: 30px;
+    width: 100%;
+
+}
+
+.form__button {
+    background-color: rgb(49, 126, 148);
+    color: rgb(208, 233, 255);
+    width: 200px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.form__button:active {
+    box-shadow: 0px 0px 5px 1px #020202;
+
+}

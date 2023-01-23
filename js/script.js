@@ -44,17 +44,25 @@
                 toggleTaskDone(index);
             });
         });
-    }
+    };
 
     const render = () => {
         let htmlString = "";
 
         for (const task of tasks) {
             htmlString += `
-            <li class="list__item${task.done ? " list__item--done" : ""}">
-            <button class="js-done">Zrobione?</button>
-                ${task.content}
-                <button class="js-remove">Usuń</button> 
+            <li class="list__item">
+                <div class="list__element">
+                    <button class="js-done list__button">
+                        ${task.done ? "&#10004;" : ""}
+                    </button>
+                    <span class="list__task${task.done ? " list__task--done" : ""}">
+                        ${task.content}
+                    </span>
+                </div>
+                <button class="js-remove list__button list__button--remove">
+                    &#128465;
+                </button> 
             </li>
             `;
         }
@@ -62,7 +70,6 @@
         document.querySelector(".js-tasks").innerHTML = htmlString;
         bindEvents();
     };
-
 
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -73,7 +80,7 @@
             return;
         }
         addNewTask(newTaskContent);
-    }
+    };
 
     const init = () => {
         render();
