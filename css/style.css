@@ -8,10 +8,10 @@ html {
 
 .body {
     display: flex;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Rubik', sans-serif;
     justify-content: center;
     margin: 20px;
-    font-size: 22px;
+    font-size: 23px;
     background-color: rgb(237, 237, 237);
 }
 
