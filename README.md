@@ -19,7 +19,7 @@ To remove a task from the list, press the red square button to the right of the 
 - JavaScript
 - CSS
 - HTML
-- Flex
+- Grid
 - NormalizeCSS
 - CamelCase naming convention
 - BEM naming convention
