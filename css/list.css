@@ -11,24 +11,17 @@ html {
     padding-inline-start: 0;
 }
 
-.list__element {
-    display: flex;
-    align-items: center;
-}
-
 .list__item {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
     align-items: center;
-    margin-bottom: 15px;
-    border-bottom: 3px solid rgb(237, 237, 237);
-    padding: 15px;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 10px;
+    border-bottom: 2px solid rgb(237, 237, 237);
+    padding: 10px;
 }
 
 .list__task {
-    margin-left: 10px;
     word-break: break-word;
-    margin-right: 5px;
 }
 
 .list__task--done {
@@ -38,15 +31,31 @@ html {
 .list__button {
     background-color: green;
     color: white;
-    min-width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
+    border: none
 }
 
 .list__button:active {
-    box-shadow: 0px 0px 5px 3px #020202;
+    box-shadow: 0px 0px 1px 1px #020202;
+}
 
+.list__button--toggle:hover {
+    background-color: rgb(1, 143, 1);
+}
+
+.list__button--toggle:active {
+    background-color: rgb(3, 200, 3);
 }
 
 .list__button--remove {
+    background-color: rgb(187, 0, 0);
+}
+
+.list__button--remove:hover {
+    background-color: rgb(229, 0, 0);
+}
+
+.list__button--remove:active {
     background-color: red;
 }
