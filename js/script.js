@@ -1,5 +1,6 @@
 {
-    const tasks = [];
+    let tasks = [];
+    let doneTasksHide = false;
 
     const addNewTask = (newTaskContent) => {
         tasks.push({
@@ -19,7 +20,19 @@
         render();
     };
 
-    const bindEvents = () => {
+    const hideTaskDone = () => {
+        doneTasksHide = !(doneTasksHide);
+        render();
+    };
+
+    const allTaskDone = () => {
+        for (const task of tasks) {
+            task.done = true;
+        }
+        render();
+    };
+
+    const bindRemoveEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
 
         removeButtons.forEach((removeButton, index) => {
@@ -27,7 +40,9 @@
                 removeTask(index);
             });
         });
+    };
 
+    const bindToggleDoneEvents = () => {
         const toggleDoneButtons = document.querySelectorAll(".js-done");
 
         toggleDoneButtons.forEach((toggleDoneButton, index) => {
@@ -37,12 +52,32 @@
         });
     };
 
-    const render = () => {
+    const bindButtonsEvents = () => {
+        if (tasks.length > 0) {
+            const hideDoneButton = document.querySelector(".js-hideDone");
+
+            hideDoneButton.addEventListener("click", () => {
+                hideTaskDone();
+            });
+
+            const allDoneButton = document.querySelector(".js-allDone");
+
+            allDoneButton.addEventListener("click", () => {
+                allTaskDone();
+            });
+        }
+    };
+
+    const isEveryTaskDone = (tasks) => {
+        return tasks.every(({ done }) => done === true);
+    };
+
+    const renderTasks = () => {
         let htmlString = "";
 
         for (const task of tasks) {
             htmlString += `
-            <li class="list__item">
+            <li class="list__item${(doneTasksHide && (doneTasksHide === task.done)) ? " list__items--hide" : ""}">
                  <button class="js-done list__button list__button--toggle">
                         ${task.done ? "&#10004;" : ""}
                 </button>
@@ -54,10 +89,30 @@
                 </button> 
             </li>
             `;
-        }
+        };
 
         document.querySelector(".js-tasks").innerHTML = htmlString;
-        bindEvents();
+    };
+
+    const renderButtons = () => {
+        if (tasks.length > 0) {
+            let htmlString = `
+                <button class="js-hideDone section__button">${doneTasksHide ? "Pokaż ukończone" : "Ukryj ukończone"}</button>
+                <button class="js-allDone section__button" ${isEveryTaskDone(tasks) ? "disabled" : ""}>Ukończ wszystkie</button>
+            `;
+            document.querySelector(".js-menuButtons").innerHTML = htmlString;
+        } else {
+            htmlString = "";
+            document.querySelector(".js-menuButtons").innerHTML = htmlString;
+        }
+    };
+
+    const render = () => {
+        renderTasks();
+        renderButtons();
+        bindRemoveEvents();
+        bindToggleDoneEvents();
+        bindButtonsEvents();
     };
 
     const onFormSubmit = (event) => {
@@ -76,7 +131,7 @@
 
     const init = () => {
         render();
-        
+
         const formElement = document.querySelector(".js-form");
 
         formElement.addEventListener("submit", onFormSubmit);

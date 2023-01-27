@@ -20,6 +20,10 @@ html {
     padding: 10px;
 }
 
+.list__items--hide {
+    display: none;
+}
+
 .list__task {
     word-break: break-word;
 }
@@ -28,12 +32,15 @@ html {
     text-decoration: line-through;
 }
 
+
 .list__button {
     background-color: green;
     color: white;
     width: 40px;
     height: 40px;
-    border: none
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
 }
 
 .list__button:active {

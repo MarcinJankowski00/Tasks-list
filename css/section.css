@@ -12,12 +12,54 @@ html {
     box-shadow: 0px 0px 5px 4px #EAEAEA;
 }
 
-.section__header {
+.section__element {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 10px;
+    align-items: center;
     border-bottom: 2px solid rgb(237, 237, 237);
     padding: 20px;
     margin: 0;
 }
 
+@media (max-width: 920px) {
+    .section__element {
+        grid-template-columns: 1fr;
+    }
+
+    .section__Buttons
+    {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px
+    }
+}
+
+.section__header {
+    margin: 0;
+}
+
 .section__content {
     padding: 20px;
+}
+
+.section__button {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color:teal;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.section__button:hover {
+    color:rgb(0, 169, 169) 
+}
+
+.section__button:active {
+    color:rgb(0, 205, 205) 
+}
+
+.section__button:disabled {
+    color:rgb(174, 174, 174);
+    cursor: default; 
 }
