@@ -15,6 +15,12 @@ To mark a completed task, press the green square button to the left of the task.
 
 To remove a task from the list, press the red square button to the right of the task.
 
+To mark all completed tasks, press "Ukończ wszystkie".
+
+To hide all marked tasks, press "Ukryj ukończone".
+
+To show all hidden tasks, press "Pokaż ukończone".
+
 ### Included technologies and conventions:
 - JavaScript
 - CSS
