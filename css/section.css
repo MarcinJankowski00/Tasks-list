@@ -27,8 +27,7 @@ html {
         grid-template-columns: 1fr;
     }
 
-    .section__Buttons
-    {
+    .section__buttons {
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: 10px
@@ -46,20 +45,20 @@ html {
 .section__button {
     background-color: rgb(255, 255, 255);
     border: none;
-    color:teal;
+    color: teal;
     cursor: pointer;
     transition: 0.5s;
 }
 
 .section__button:hover {
-    color:rgb(0, 169, 169) 
+    color: rgb(0, 169, 169)
 }
 
 .section__button:active {
-    color:rgb(0, 205, 205) 
+    color: rgb(0, 205, 205)
 }
 
 .section__button:disabled {
-    color:rgb(174, 174, 174);
-    cursor: default; 
+    color: rgb(174, 174, 174);
+    cursor: default;
 }

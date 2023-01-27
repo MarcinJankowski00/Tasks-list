@@ -3,20 +3,33 @@
     let doneTasksHide = false;
 
     const addNewTask = (newTaskContent) => {
-        tasks.push({
-            content: newTaskContent
-        });
+        tasks = [
+            ...tasks,
+            { content: newTaskContent },
+        ];
 
         render();
     };
 
     const removeTask = (taskIndex) => {
-        tasks.splice(taskIndex, 1);
+        tasks = [
+            ...tasks.slice(0, taskIndex),
+            ...tasks.slice(taskIndex + 1)
+        ];
+
         render();
     };
 
     const toggleTaskDone = (taskIndex) => {
-        tasks[taskIndex].done = !tasks[taskIndex].done
+        tasks = [
+            ...tasks.slice(0, taskIndex),
+            {
+                content: tasks[taskIndex].content,
+                done: !tasks[taskIndex].done
+            },
+            ...tasks.slice(taskIndex + 1)
+        ];
+
         render();
     };
 
@@ -26,9 +39,8 @@
     };
 
     const allTaskDone = () => {
-        for (const task of tasks) {
-            task.done = true;
-        }
+        tasks = tasks.map((task) => ({ ...task, done: true }));
+
         render();
     };
 
@@ -69,7 +81,7 @@
     };
 
     const isEveryTaskDone = (tasks) => {
-        return tasks.every(({ done }) => done === true);
+        return tasks.every(({ done }) => done);
     };
 
     const renderTasks = () => {
@@ -77,7 +89,7 @@
 
         for (const task of tasks) {
             htmlString += `
-            <li class="list__item${(doneTasksHide && (doneTasksHide === task.done)) ? " list__items--hide" : ""}">
+            <li class="list__item${(doneTasksHide && task.done) ? " list__items--hide" : ""}">
                  <button class="js-done list__button list__button--toggle">
                         ${task.done ? "&#10004;" : ""}
                 </button>
